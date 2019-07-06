@@ -8,7 +8,11 @@ namespace TemplateApp.DAL
 	{
 		public DbSet<User> Users { get; set; }
 
+		public DbSet<DataGovRuEntry> DataGovRuEntries { get; set; }
+
 		public DbSet<Notification> Notifications { get; set; }
+
+		public DbSet<DataGovRuEntryRow> DataGovRuEntryRows { get; set; }
 
 		public ApplicationContext(DbContextOptions<ApplicationContext> options)
 			: base(options)

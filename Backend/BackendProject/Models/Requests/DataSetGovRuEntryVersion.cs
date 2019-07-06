@@ -7,6 +7,6 @@ namespace TemplateApp.Models.Requests
 {
 	public class DataSetGovRuEntryVersion
 	{
-		public DateTime created { get; set; }
+		public DateTime? created { get; set; }
 	}
 }
