@@ -26,3 +26,31 @@ C:\Users\Михаил\Documents\Visual Studio 2017\Projects\TemplateApp\bin\Debu
 C:\Users\Михаил\Documents\Visual Studio 2017\Projects\TemplateApp\obj\Debug\netcoreapp2.1\TemplateApp.Views.pdb
 C:\Users\Михаил\Documents\Visual Studio 2017\Projects\TemplateApp\obj\Debug\netcoreapp2.1\TemplateApp.csproj.CopyComplete
 C:\Users\Михаил\Documents\Visual Studio 2017\Projects\TemplateApp\obj\Debug\netcoreapp2.1\TemplateApp.csprojAssemblyReference.cache
+c:\Hackaton\Repository\Hakaton\Backend\BackendProject\bin\Debug\netcoreapp2.1\TemplateApp.deps.json
+c:\Hackaton\Repository\Hakaton\Backend\BackendProject\bin\Debug\netcoreapp2.1\TemplateApp.runtimeconfig.json
+c:\Hackaton\Repository\Hakaton\Backend\BackendProject\bin\Debug\netcoreapp2.1\TemplateApp.runtimeconfig.dev.json
+c:\Hackaton\Repository\Hakaton\Backend\BackendProject\bin\Debug\netcoreapp2.1\TemplateApp.dll
+c:\Hackaton\Repository\Hakaton\Backend\BackendProject\bin\Debug\netcoreapp2.1\TemplateApp.pdb
+c:\Hackaton\Repository\Hakaton\Backend\BackendProject\bin\Debug\netcoreapp2.1\TemplateApp.Views.dll
+c:\Hackaton\Repository\Hakaton\Backend\BackendProject\bin\Debug\netcoreapp2.1\TemplateApp.Views.pdb
+c:\Hackaton\Repository\Hakaton\Backend\BackendProject\obj\Debug\netcoreapp2.1\TemplateApp.csprojAssemblyReference.cache
+c:\Hackaton\Repository\Hakaton\Backend\BackendProject\obj\Debug\netcoreapp2.1\TemplateApp.Resources.NotificationsTemplates.resources
+c:\Hackaton\Repository\Hakaton\Backend\BackendProject\obj\Debug\netcoreapp2.1\TemplateApp.csproj.GenerateResource.cache
+c:\Hackaton\Repository\Hakaton\Backend\BackendProject\obj\Debug\netcoreapp2.1\TemplateApp.csproj.CoreCompileInputs.cache
+c:\Hackaton\Repository\Hakaton\Backend\BackendProject\obj\Debug\netcoreapp2.1\TemplateApp.RazorAssemblyInfo.cache
+c:\Hackaton\Repository\Hakaton\Backend\BackendProject\obj\Debug\netcoreapp2.1\TemplateApp.RazorAssemblyInfo.cs
+c:\Hackaton\Repository\Hakaton\Backend\BackendProject\obj\Debug\netcoreapp2.1\TemplateApp.AssemblyInfoInputs.cache
+c:\Hackaton\Repository\Hakaton\Backend\BackendProject\obj\Debug\netcoreapp2.1\TemplateApp.AssemblyInfo.cs
+c:\Hackaton\Repository\Hakaton\Backend\BackendProject\obj\Debug\netcoreapp2.1\TemplateApp.TagHelpers.input.cache
+c:\Hackaton\Repository\Hakaton\Backend\BackendProject\obj\Debug\netcoreapp2.1\TemplateApp.TagHelpers.output.cache
+c:\Hackaton\Repository\Hakaton\Backend\BackendProject\obj\Debug\netcoreapp2.1\TemplateApp.RazorCoreGenerate.cache
+c:\Hackaton\Repository\Hakaton\Backend\BackendProject\obj\Debug\netcoreapp2.1\Razor\Pages\Error.g.cshtml.cs
+c:\Hackaton\Repository\Hakaton\Backend\BackendProject\obj\Debug\netcoreapp2.1\Razor\Pages\_ViewImports.g.cshtml.cs
+c:\Hackaton\Repository\Hakaton\Backend\BackendProject\obj\Debug\netcoreapp2.1\Razor\Views\Account\Login.g.cshtml.cs
+c:\Hackaton\Repository\Hakaton\Backend\BackendProject\obj\Debug\netcoreapp2.1\Razor\Views\Account\Register.g.cshtml.cs
+c:\Hackaton\Repository\Hakaton\Backend\BackendProject\obj\Debug\netcoreapp2.1\TemplateApp.RazorTargetAssemblyInfo.cache
+c:\Hackaton\Repository\Hakaton\Backend\BackendProject\obj\Debug\netcoreapp2.1\TemplateApp.RazorTargetAssemblyInfo.cs
+c:\Hackaton\Repository\Hakaton\Backend\BackendProject\obj\Debug\netcoreapp2.1\TemplateApp.Views.pdb
+c:\Hackaton\Repository\Hakaton\Backend\BackendProject\obj\Debug\netcoreapp2.1\TemplateApp.dll
+c:\Hackaton\Repository\Hakaton\Backend\BackendProject\obj\Debug\netcoreapp2.1\TemplateApp.pdb
+c:\Hackaton\Repository\Hakaton\Backend\BackendProject\obj\Debug\netcoreapp2.1\TemplateApp.csproj.CopyComplete
