@@ -21,12 +21,16 @@ namespace TemplateApp.Controllers
 		private ITextFileParser _parser;
 
 
-		public ExchangeDataController(IConfiguration configuration, IDataGovRuService dataGovRuService)
+
+        public ExchangeDataController(IConfiguration configuration, IDataGovRuService dataGovRuService,
+            IFileService fileService, ITextFileParser parser)
 		{
 			_configuration = configuration;
 			_dataGovRuService = dataGovRuService;
-		}
+            _fileService = fileService;
+            _parser = parser;
 
+		}
 
 		[HttpGet("importdatagovrudata")]
 		[IgnoreAntiforgeryToken]
@@ -61,7 +65,7 @@ namespace TemplateApp.Controllers
 							try
 							{
 								_dataGovRuService.SaveEntryRow(entryId, row.ToString());
-							}
+        }
 							catch
 							{
 								failed++;
@@ -79,6 +83,7 @@ namespace TemplateApp.Controllers
 		}
 
 		[HttpGet("test")]
+ 		[IgnoreAntiforgeryToken]
 		public IActionResult testFile()
 		{
 			var result = _parser.ParseFile(@"c:\Hackaton\Дата.Гов\data-20190703T0648-structure-20190703T0648.csv");
