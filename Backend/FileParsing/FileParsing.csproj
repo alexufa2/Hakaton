@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\BackendProject\DataImportContracts\DataImportContracts.csproj" />
+    <ProjectReference Include="..\ImportDataContracts\ImportDataContracts.csproj" />
   </ItemGroup>
 
 </Project>

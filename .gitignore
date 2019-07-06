@@ -56,3 +56,7 @@ Thumbs.db
 /Backend/FileParsing/obj/
 /Backend/FileParsing/obj/
 /Backend/BackendProject/obj/TemplateApp.csproj.nuget.g.props
+/Backend/BackendProject/.vs/TemplateApp/v15/Server/sqlite3/storage.ide
+/Backend/BackendProject/bin/Debug/netcoreapp2.1/TemplateApp.deps.json
+/Backend/ImportDataContracts/bin/
+/Backend/ImportDataContracts/obj/

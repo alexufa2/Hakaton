@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using FileParsing;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
@@ -15,6 +16,9 @@ namespace TemplateApp.Controllers
 
 		private IConfiguration _configuration;
 		private IDataGovRuService _dataGovRuService;
+
+        private IFileService _fileService;
+        private ITextFileParser _parser;
 
 
 		public ExchangeDataController(IConfiguration configuration, IDataGovRuService dataGovRuService)
@@ -39,5 +43,13 @@ namespace TemplateApp.Controllers
 
 			return Ok(res2);
 		}
+
+        [HttpGet("test")]
+        public IActionResult testFile()
+        {
+            var result = _parser.ParseFile(@"c:\Hackaton\Дата.Гов\data-20190703T0648-structure-20190703T0648.csv");
+
+            return Ok("");
 	}
+}
 }

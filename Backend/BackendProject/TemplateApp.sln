@@ -5,9 +5,9 @@ VisualStudioVersion = 15.0.28307.489
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TemplateApp", "TemplateApp.csproj", "{0B8F88FD-F8DE-4B22-A9A2-409CD87FB9AB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileParsing", "..\FileParsing\FileParsing.csproj", "{1AB6003E-9A13-4BA4-81DD-01E4F27414A9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FileParsing", "..\FileParsing\FileParsing.csproj", "{1AB6003E-9A13-4BA4-81DD-01E4F27414A9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataImportContracts", "DataImportContracts\DataImportContracts.csproj", "{1BBA953D-9CE1-4BEE-86C8-EA66097A4D74}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImportDataContracts", "..\ImportDataContracts\ImportDataContracts.csproj", "{831D8596-99B4-44B6-8764-BC08AD7D3020}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +23,10 @@ Global
 		{1AB6003E-9A13-4BA4-81DD-01E4F27414A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1AB6003E-9A13-4BA4-81DD-01E4F27414A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1AB6003E-9A13-4BA4-81DD-01E4F27414A9}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1BBA953D-9CE1-4BEE-86C8-EA66097A4D74}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1BBA953D-9CE1-4BEE-86C8-EA66097A4D74}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1BBA953D-9CE1-4BEE-86C8-EA66097A4D74}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1BBA953D-9CE1-4BEE-86C8-EA66097A4D74}.Release|Any CPU.Build.0 = Release|Any CPU
+		{831D8596-99B4-44B6-8764-BC08AD7D3020}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{831D8596-99B4-44B6-8764-BC08AD7D3020}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{831D8596-99B4-44B6-8764-BC08AD7D3020}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{831D8596-99B4-44B6-8764-BC08AD7D3020}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

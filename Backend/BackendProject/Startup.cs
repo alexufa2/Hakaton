@@ -20,6 +20,7 @@ using System;
 using System.Text;
 using System.Threading.Tasks;
 using TemplateApp.Utils.Crypto;
+using FileParsing;
 
 namespace TemplateApp
 {
@@ -136,7 +137,10 @@ namespace TemplateApp
 			services.AddHttpContextAccessor();
 			services.AddHostedService<NotificationHostedService>();
 
-			services.AddScoped<IMiddlewareFactory, MiddlewareFactory>();
+            services.AddScoped<IFileService, FileService>();
+            services.AddScoped<ITextFileParser, TextFileParser>();
+
+            services.AddScoped<IMiddlewareFactory, MiddlewareFactory>();
 			services.AddLogging();
 
 		}
