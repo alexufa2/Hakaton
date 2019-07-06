@@ -25,12 +25,19 @@ namespace TemplateApp.Controllers
 
 
 		[HttpGet("importdatagovrudata")]
-		public IActionResult ImportDataGovRuData()
+		[IgnoreAntiforgeryToken]
+		public async Task<IActionResult> ImportDataGovRuData(int number)
 		{
 
-			var result = _dataGovRuService.GetEntries();
+			var result = await _dataGovRuService.GetEntries();
 
-			return Ok(result);
+			string id = result[number].identifier;
+
+			var data = await _dataGovRuService.GetLastVersionForEntry(id);
+
+			var res2 = await _dataGovRuService.GetRows(id, data);
+
+			return Ok(res2);
 		}
 	}
 }
