@@ -45,3 +45,14 @@ Thumbs.db
 /Backend/BackendProject/.vs
 /Backend/BackendProject/.vs/TemplateApp/v15/
 /Backend/BackendProject/bin/
+/Backend/BackendProject/DataImportContracts/bin/
+/Backend/BackendProject/.vs/TemplateApp/v15/.suo
+/Backend/BackendProject/.vs/TemplateApp/v15/Server/sqlite3/storage.ide-shm
+/Backend/BackendProject/.vs/TemplateApp/v15/Server/sqlite3/storage.ide-wal
+/Backend/BackendProject/bin/
+/Backend/BackendProject/DataImportContracts/obj/
+/Backend/BackendProject/obj/
+/Backend/FileParsing/bin
+/Backend/FileParsing/obj/
+/Backend/FileParsing/obj/
+/Backend/BackendProject/obj/TemplateApp.csproj.nuget.g.props
