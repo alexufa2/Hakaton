@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
+using TemplateApp.DAL;
 using TemplateApp.Models.Requests;
 
 namespace TemplateApp.Services
@@ -16,16 +17,20 @@ namespace TemplateApp.Services
 		Task<List<DataGovRuDataSetEntry>> GetEntries();
 		Task<DateTime> GetLastVersionForEntry(string identifier);
 		Task<List<object>> GetRows(string identifier, DateTime date);
+		int SaveEntry(DataGovRuDataSetEntry entry);
+		void SaveEntryRow(int entryId, string rowJson);
 	}
 
 	public class DataGovRuService : IDataGovRuService
 	{
 
 		private IConfiguration _configuration;
+		ApplicationContext _appContext;
 
-		public DataGovRuService(IConfiguration configuration)
+		public DataGovRuService(IConfiguration configuration, ApplicationContext appContext)
 		{
 			_configuration = configuration;
+			_appContext = appContext;
 		}
 
 		public async Task<List<DataGovRuDataSetEntry>> GetEntries()
@@ -58,7 +63,7 @@ namespace TemplateApp.Services
 
 				result = JsonConvert.DeserializeObject<List<DataSetGovRuEntryVersion>>(response, new IsoDateTimeConverter() { DateTimeFormat = "yyyyMMddTHHmmss" });
 
-				lastDate = result.OrderByDescending(x => x.created).FirstOrDefault().created;
+				lastDate = result.Where(x => x.created.HasValue).OrderByDescending(x => x.created.Value).FirstOrDefault().created.Value;
 			}
 
 			return lastDate;
@@ -86,6 +91,25 @@ namespace TemplateApp.Services
 		private string CreateSpecialFormatDate(DateTime date)
 		{
 			return date.ToString("yyyyMMddTHHmmss");
+		}
+
+		public int SaveEntry(DataGovRuDataSetEntry entry)
+		{
+			var result = _appContext.DataGovRuEntries.Add(entry.ToDto());
+
+			_appContext.SaveChanges();
+
+			return result.Entity.Id;
+		}
+
+		public void SaveEntryRow(int entryId, string rowJson)
+		{
+
+			var entry = _appContext.DataGovRuEntries.FirstOrDefault(x => x.Id == entryId);
+
+			_appContext.DataGovRuEntryRows.Add(new DAL.Entities.DataGovRuEntryRow() { Entry = entry, Row = rowJson });
+
+			_appContext.SaveChanges();
 		}
 	}
 }

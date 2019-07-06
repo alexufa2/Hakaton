@@ -17,8 +17,8 @@ namespace TemplateApp.Controllers
 		private IConfiguration _configuration;
 		private IDataGovRuService _dataGovRuService;
 
-        private IFileService _fileService;
-        private ITextFileParser _parser;
+		private IFileService _fileService;
+		private ITextFileParser _parser;
 
 
 		public ExchangeDataController(IConfiguration configuration, IDataGovRuService dataGovRuService)
@@ -34,22 +34,56 @@ namespace TemplateApp.Controllers
 		{
 
 			var result = await _dataGovRuService.GetEntries();
+			int commonCount = result.Count;
+			int commonRows = 0;
+			int failed = 0;
+			int failedRows = 0;
 
-			string id = result[number].identifier;
 
-			var data = await _dataGovRuService.GetLastVersionForEntry(id);
+			foreach (var entry in result)
+			{
+				try
+				{
+					string identifier = entry.identifier;
 
-			var res2 = await _dataGovRuService.GetRows(id, data);
+					int entryId = _dataGovRuService.SaveEntry(entry);
 
-			return Ok(res2);
+					var data = await _dataGovRuService.GetLastVersionForEntry(identifier);
+
+					if (data != null)
+					{
+						var rows = await _dataGovRuService.GetRows(identifier, data);
+
+						foreach (object row in rows)
+						{
+							commonRows++;
+
+							try
+							{
+								_dataGovRuService.SaveEntryRow(entryId, row.ToString());
+							}
+							catch
+							{
+								failed++;
+							}
+						}
+					}
+				}
+				catch
+				{
+					failedRows++;
+				}
+			}
+
+			return Ok($"OK - count: {commonCount} failed: {failed}");
 		}
 
-        [HttpGet("test")]
-        public IActionResult testFile()
-        {
-            var result = _parser.ParseFile(@"c:\Hackaton\Дата.Гов\data-20190703T0648-structure-20190703T0648.csv");
+		[HttpGet("test")]
+		public IActionResult testFile()
+		{
+			var result = _parser.ParseFile(@"c:\Hackaton\Дата.Гов\data-20190703T0648-structure-20190703T0648.csv");
 
-            return Ok("");
+			return Ok("");
+		}
 	}
-}
 }
