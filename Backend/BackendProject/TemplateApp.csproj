@@ -63,6 +63,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\FileParsing\FileParsing.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Update="Resources\NotificationsTemplates.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>

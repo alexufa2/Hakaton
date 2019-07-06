@@ -26,14 +26,14 @@
           "build/netstandard2.0/NETStandard.Library.targets": {}
         }
       },
-      "DataImportContracts/1.0.0": {
+      "ImportDataContracts/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "compile": {
-          "bin/placeholder/DataImportContracts.dll": {}
+          "bin/placeholder/ImportDataContracts.dll": {}
         },
         "runtime": {
-          "bin/placeholder/DataImportContracts.dll": {}
+          "bin/placeholder/ImportDataContracts.dll": {}
         }
       }
     }
@@ -182,15 +182,15 @@
         "netstandard.library.nuspec"
       ]
     },
-    "DataImportContracts/1.0.0": {
+    "ImportDataContracts/1.0.0": {
       "type": "project",
-      "path": "../BackendProject/DataImportContracts/DataImportContracts.csproj",
-      "msbuildProject": "../BackendProject/DataImportContracts/DataImportContracts.csproj"
+      "path": "../ImportDataContracts/ImportDataContracts.csproj",
+      "msbuildProject": "../ImportDataContracts/ImportDataContracts.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETStandard,Version=v2.0": [
-      "DataImportContracts >= 1.0.0",
+      "ImportDataContracts >= 1.0.0",
       "NETStandard.Library >= 2.0.3"
     ]
   },
@@ -224,8 +224,8 @@
       "frameworks": {
         "netstandard2.0": {
           "projectReferences": {
-            "C:\\Hackaton\\Repository\\Hakaton\\Backend\\BackendProject\\DataImportContracts\\DataImportContracts.csproj": {
-              "projectPath": "C:\\Hackaton\\Repository\\Hakaton\\Backend\\BackendProject\\DataImportContracts\\DataImportContracts.csproj"
+            "C:\\Hackaton\\Repository\\Hakaton\\Backend\\ImportDataContracts\\ImportDataContracts.csproj": {
+              "projectPath": "C:\\Hackaton\\Repository\\Hakaton\\Backend\\ImportDataContracts\\ImportDataContracts.csproj"
             }
           }
         }

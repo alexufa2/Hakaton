@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.IO;
 
 namespace TemplateApp.Services
 {
@@ -10,11 +6,11 @@ namespace TemplateApp.Services
     {
         string SaveFileByName(string fileName, string fileContent);
 
-        string SaveFileByPath(string filePath, string fileContent);
+        string SaveFileByPath(string fileDir, string fileName, string fileContent);
 
         string ReadFileByName(string fileName);
 
-        string ReadFileByPath(string filePath);
+        string ReadFileByPath(string fileDir, string fileName);
     }
 
 
@@ -31,24 +27,35 @@ namespace TemplateApp.Services
 
         public string ReadFileByName(string fileName)
         {
-            throw new NotImplementedException();
+            return ReadFileByPath(_fileDirPath, fileName);
         }
 
-        public string ReadFileByPath(string fileDir,)
+        public string ReadFileByPath(string fileDir, string fileName)
         {
-            throw new NotImplementedException();
+            string path = Path.Combine(fileDir, fileName);
+            if (!File.Exists(path))
+            {
+                return string.Empty;
+            }
+
+            return File.ReadAllText(path);
         }
 
         public string SaveFileByName(string fileName, string fileContent)
         {
-            string filePath = Path.Combine(_fileDirPath, fileName);
-            return SaveFileByPath(filePath, fileContent);
+            return SaveFileByPath(_fileDirPath, fileName, fileContent);
         }
 
-        public string SaveFileByPath(string filePath, string fileContent)
+        public string SaveFileByPath(string fileDir, string fileName, string fileContent)
         {
-            string dir= direc
-           Directory.Exists()
+            if (!Directory.Exists(fileDir))
+            {
+                Directory.CreateDirectory(fileDir);
+            }
+
+            string path = Path.Combine(fileDir, fileName);
+            File.WriteAllText(path, fileContent);
+            return path;
         }
     }
 }

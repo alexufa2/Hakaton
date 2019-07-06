@@ -1,11 +1,11 @@
-﻿using DataImportContracts;
+﻿using ImportDataContracts;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
 namespace FileParsing
 {
-    public class TextFIleParser : ITextFileParser
+    public class TextFileParser : ITextFileParser
     {
         public IEnumerable<AddressInfo> ParseFile(string filePath)
         {
