@@ -21,10 +21,14 @@ namespace TemplateApp.Controllers
         private ITextFileParser _parser;
 
 
-        public ExchangeDataController(IConfiguration configuration, IDataGovRuService dataGovRuService)
+        public ExchangeDataController(IConfiguration configuration, IDataGovRuService dataGovRuService,
+            IFileService fileService, ITextFileParser parser)
         {
             _configuration = configuration;
             _dataGovRuService = dataGovRuService;
+            _fileService = fileService;
+            _parser = parser;
+
         }
 
 
@@ -37,6 +41,7 @@ namespace TemplateApp.Controllers
             return Ok(result);
         }
 
+        [IgnoreAntiforgeryToken]
         [HttpGet("test")]
         public IActionResult testFile()
         {
