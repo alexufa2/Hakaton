@@ -144,6 +144,12 @@ namespace TemplateApp.Controllers
 			_userService.UpdateCurrentUserTimeZone(offset.TimeZoneName, offset.TimeZoneOffset);
 		}
 
+		[HttpGet("testauth")]
+		public IActionResult TestAuth()
+		{
+			return Ok(new OperationResult() { Code = 200, Data = new { status = "Auth-OK" }, Success = false });
+		}
+
 		[IgnoreAntiforgeryToken]
 		[HttpGet("queryxrf")]
 		public IActionResult QueryXrf()
