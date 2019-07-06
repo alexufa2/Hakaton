@@ -41,3 +41,7 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+/Backend/BackendProject/.vs/
+/Backend/BackendProject/.vs
+/Backend/BackendProject/.vs/TemplateApp/v15/
+/Backend/BackendProject/bin/
