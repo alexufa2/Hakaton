@@ -48,7 +48,7 @@ namespace TemplateApp.Controllers
 			var user = _userService.Authenticate(userParam.Email, userParam.Password);
 
 			if (user == null)
-				return BadRequest(new OperationResult() { Code = 400, Data = new { message = "Неправильный логин или пароль" }, Success = false });
+				return Ok(new OperationResult() { Code = 200, Data = new { message = "Неправильный логин или пароль" }, Success = false });
 
 			UserDto result = CreateAuthInfoWithToken(user);
 
@@ -93,7 +93,7 @@ namespace TemplateApp.Controllers
 			var user = task.Result;
 
 			if (user == null)
-				return BadRequest(new OperationResult() { Code = 400, Data = new { message = "Пользователь с таким E-Mail уже зарегистрирован" }, Success = false });
+				return Ok(new OperationResult() { Code = 200, Data = new { message = "Пользователь с таким E-Mail уже зарегистрирован" }, Success = false });
 
 			_notificationService.AddUserRegistrationNotification(user);
 
@@ -119,7 +119,7 @@ namespace TemplateApp.Controllers
 			}
 
 			// Not found
-			return Ok(new OperationResult() { Code = 400, Data = new { status = "not-found" }, Success = false });
+			return Ok(new OperationResult() { Code = 200, Data = new { status = "not-found" }, Success = false });
 		}
 
 		[HttpPost("UpdateUserProfile")]

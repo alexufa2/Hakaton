@@ -11897,11 +11897,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Михаил\\Documents\\Visual Studio 2017\\Projects\\TemplateApp\\TemplateApp.csproj",
+      "projectUniqueName": "C:\\Hackaton\\project\\Hakaton\\Backend\\BackendProject\\TemplateApp.csproj",
       "projectName": "TemplateApp",
-      "projectPath": "C:\\Users\\Михаил\\Documents\\Visual Studio 2017\\Projects\\TemplateApp\\TemplateApp.csproj",
+      "projectPath": "C:\\Hackaton\\project\\Hakaton\\Backend\\BackendProject\\TemplateApp.csproj",
       "packagesPath": "C:\\Users\\Михаил\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Михаил\\Documents\\Visual Studio 2017\\Projects\\TemplateApp\\obj\\",
+      "outputPath": "C:\\Hackaton\\project\\Hakaton\\Backend\\BackendProject\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

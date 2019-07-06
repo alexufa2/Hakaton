@@ -5,8 +5,6 @@
   "scripts": {
     "ng": "ng",
     "start": "rem",
-    "build": "ng build --extract-css",
-    "build:ssr": "npm run build -- --app=ssr --output-hashing=media",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
@@ -14,7 +12,4 @@
   "private": true,
   "dependencies": {},
   "devDependencies": {},
-  "optionalDependencies": {
-    "node-sass": "^4.9.0"
-  }
 }
