@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -33,19 +34,21 @@ namespace TemplateApp.Services
             throw new NotImplementedException();
         }
 
-        public string ReadFileByPath(string filePath)
+        public string ReadFileByPath(string fileDir,)
         {
             throw new NotImplementedException();
         }
 
         public string SaveFileByName(string fileName, string fileContent)
         {
-            throw new NotImplementedException();
+            string filePath = Path.Combine(_fileDirPath, fileName);
+            return SaveFileByPath(filePath, fileContent);
         }
 
         public string SaveFileByPath(string filePath, string fileContent)
         {
-            throw new NotImplementedException();
+            string dir= direc
+           Directory.Exists()
         }
     }
 }
