@@ -132,6 +132,7 @@ namespace TemplateApp
 			// configure DI for application services
 			services.AddScoped<IUserService, UserService>();
 			services.AddScoped<INotificationService, NotificationService>();
+			services.AddScoped<IDataGovRuService, DataGovRuService>();
 			services.AddHttpContextAccessor();
 			services.AddHostedService<NotificationHostedService>();
 
