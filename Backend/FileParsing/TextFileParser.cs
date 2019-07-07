@@ -18,7 +18,7 @@ namespace FileParsing
 
     public class TextFileParser : ITextFileParser
     {
-        private Regex _streetRegExp = new Regex(@"(ул)|(мкрн)|(микрорайон)");
+        private Regex _streetRegExp = new Regex(@"(ул)|(мкрн)|(микрорайон)|(пос)|(пр)");
         private readonly string[] Splitters = new string[] { ",", ";" };
         private readonly List<KeyValuePair<string, string>> CoordsHeaders =
             new List<KeyValuePair<string, string>>
