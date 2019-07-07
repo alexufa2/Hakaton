@@ -137,7 +137,8 @@ namespace TemplateApp
             services.AddHttpContextAccessor();
             services.AddHostedService<NotificationHostedService>();
 
-            services.AddScoped<IFileService, FileService>(t => new FileService(""));
+            string fileDir= Configuration.GetSection("Default").GetValue<string>("fileDir");
+            services.AddScoped<IFileService, FileService>(t => new FileService(fileDir));
             services.AddScoped<ITextFileParser, TextFileParser>();
 
             services.AddScoped<IMiddlewareFactory, MiddlewareFactory>();

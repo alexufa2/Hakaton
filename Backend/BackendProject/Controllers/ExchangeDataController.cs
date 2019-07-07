@@ -1,4 +1,5 @@
 ﻿using FileParsing;
+using ImportDataContracts;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using System;
@@ -86,9 +87,10 @@ namespace TemplateApp.Controllers
  		[IgnoreAntiforgeryToken]
 		public IActionResult testFile()
 		{
-			var result = _parser.ParseFile(@"c:\Hackaton\Дата.Гов\data-20190703T0648-structure-20190703T0648.csv");
+            IEnumerable<AddressInfo> result =
+                _parser.ParseFile(@"c:\Hackaton\Дата.Гов\data-20190703T0648-structure-20190703T0648.csv");
 
-			return Ok("");
+			return Ok(result);
 		}
 	}
 }
