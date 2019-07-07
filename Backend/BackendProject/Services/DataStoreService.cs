@@ -1,8 +1,6 @@
 ﻿using ImportDataContracts;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using TemplateApp.DAL;
 using TemplateApp.DAL.Entities;
 
@@ -10,13 +8,11 @@ namespace TemplateApp.Services
 {
     public interface IDataStoreService
     {
-
         List<Street> GetStreets();
         void SaveStreet(Street street, StreetJsonInfo json);
         void SaveData(IEnumerable<AddressInfo> data);
         List<string> GetJsonForStreet(int streetId);
         List<Street> GetStreetsByString(string substring);
-
     }
 
     public class DataStoreService : IDataStoreService

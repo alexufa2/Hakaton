@@ -31,7 +31,7 @@ namespace TemplateApp.Controllers
             return Ok(data);
         }
 
-        [HttpGet("get/id")]
+        [HttpGet("get/{id}")]
         [IgnoreAntiforgeryToken]
         public IActionResult GetById(int id)
         {

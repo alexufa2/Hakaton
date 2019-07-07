@@ -136,6 +136,8 @@ namespace TemplateApp
             services.AddScoped<IDataGovRuService, DataGovRuService>();
             services.AddHttpContextAccessor();
             services.AddHostedService<NotificationHostedService>();
+            services.AddScoped<IDataStoreService, DataStoreService>();
+
 
             string fileDir = Configuration.GetSection("Default").GetValue<string>("fileDir");
             string appDir = Configuration.GetValue<string>(WebHostDefaults.ContentRootKey);
