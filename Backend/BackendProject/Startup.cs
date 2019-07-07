@@ -141,6 +141,9 @@ namespace TemplateApp
             string appDir = Configuration.GetValue<string>(WebHostDefaults.ContentRootKey);
             services.AddScoped<IFileService, FileService>(t => new FileService(appDir, fileDir));
             services.AddScoped<ITextFileParser, TextFileParser>();
+            services.AddScoped<IAddressInfoService>(t =>
+                                    new AddressInfoService(t.GetRequiredService<IFileService>())
+            );
 
             services.AddScoped<IMiddlewareFactory, MiddlewareFactory>();
             services.AddLogging();

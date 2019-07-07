@@ -84,7 +84,7 @@ namespace TemplateApp.Controllers
             return Ok($"OK - count: {commonCount} failed: {failed}");
         }
 
-        [HttpGet("test")]
+        [HttpGet("load")]
         [IgnoreAntiforgeryToken]
         public IActionResult testFile()
         {
@@ -92,7 +92,7 @@ namespace TemplateApp.Controllers
                 _parser.ParseFile(@"c:\Hackaton\Дата.Гов\data-20190703T0648-structure-20190703T0648.csv");
 
             string json = JsonConvert.SerializeObject(result);
-            _fileService.SaveFileByName("data.json", json);
+            _fileService.SaveFileByName(GlobalConstants.DataFileName, json);
 
             return Ok(result);
         }
