@@ -1,0 +1,77 @@
+<mat-sidenav-container (backdropClick)="confirmClose()">
+
+    <mat-sidenav-content></mat-sidenav-content>
+    <mat-sidenav [opened]="opened" mode="over" autoFocus="false" position="end" [disableClose]="true" fixedInViewport="true" [style.width]="'550px'"
+                 (closedStart)="onClosedStart()" (openedStart)="onOpenedStart()" (keyup.esc)="confirmClose()" style="transition: width 300ms">
+
+        <mat-toolbar>
+            <button mat-icon-button (click)="confirmClose()">
+                <mat-icon>clear</mat-icon>
+            </button>
+            Верификация аккаунта
+        </mat-toolbar>
+
+      <div *ngIf="status === 'SUCCESS'" class="success-message">
+        <h3>Поздравляем</h3>
+        <p>Ваш аккаунт теперь верифицирован.<br>Вы можете оставлять комментарии в статистических блоках</p>
+        <button mat-raised-button color="primary" (click)="close()">Я понял, спасибо</button>
+      </div>
+
+    <div *ngIf="status !== 'SUCCESS'" class="pl-4 pr-4" [formGroup]="form">
+
+        <p>Введите ваши данные для подтверждения личности. Это необходимо, если вы хотите выражать свое мнение на нашей площадке.</p>
+
+      <mat-form-field class="w-75">
+        <mat-label>Номер телефона</mat-label>
+        <input required formControlName="phone" matInput>
+      </mat-form-field>
+
+      <br>
+
+      <mat-form-field class="w-75">
+        <mat-label>Номер и серия паспорта</mat-label>
+        <input required formControlName="passportNumber" matInput>
+      </mat-form-field>
+
+      <br>
+
+      <mat-form-field class="w-75">
+        <mat-label>Дата выдачи</mat-label>
+        <input required formControlName="passportDate" matInput>
+      </mat-form-field>
+
+      <br>
+
+      <mat-form-field class="w-75">
+        <mat-label>Кем выдан</mat-label>
+        <input required formControlName="passportPlace" matInput>
+      </mat-form-field>
+
+      <br>
+
+          <button *ngIf="status !== 'ERROR'" (click)="submit()" class="mt-4"  mat-raised-button color="primary"
+                  [disabled]="status === 'LOAD' || form.invalid">
+
+            <span *ngIf="status !== 'LOAD'">Подтвердить аккаунт</span>
+
+            <div *ngIf="status === 'LOAD'" class="d-flex">
+              <mat-spinner diameter="20" class="mt-2" color="accent"></mat-spinner>
+              <span class="ml-2">Сохранение...</span>
+            </div>
+
+          </button>
+
+          <div *ngIf="status === 'ERROR'">
+            <p>Не удалось сохранить данные: {{errorText}}.</p>
+            <div>
+              <button mat-raised-button color="primary" (click)="confirmClose()">Закрыть окно</button>
+              <button [disabled]="form.invalid" (click)="submit()" mat-button class="ml-2">Попробовать снова</button>
+            </div>
+          </div>
+
+        </div>
+
+
+    </mat-sidenav>
+
+</mat-sidenav-container>

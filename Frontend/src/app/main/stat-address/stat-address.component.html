@@ -1,0 +1,6 @@
+<app-search *ngIf="selectedResult === null" (resultSelected)="resultSelected($event)" [lastSelectedResults]="lastSelectedResults" (lastSelectedResultsChanged)="lastSelectedResults = $event"></app-search>
+<app-stat-blocks *ngIf="selectedResult !== null && selectedStatBlock === null" (statBlockSelected)="statBlockSelected($event)" [statBlocks]="statBlocks" [selectedResult]="selectedResult" (back)="selectedResult = null"></app-stat-blocks>
+<app-stat-blocks-detail *ngIf="selectedResult !== null && selectedStatBlock !== null"
+                       [selectedResult]="selectedResult"
+                       [selectedStatBlock]="selectedStatBlock"
+                       (back)="selectedResult = null; selectedStatBlock = null"></app-stat-blocks-detail>

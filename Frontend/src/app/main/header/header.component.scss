@@ -1,0 +1,27 @@
+.header
+{
+  height: 50px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #f5f5f5;
+  -webkit-box-shadow: 5px 0px 10px rgba(0, 0, 0, 0.5);
+  box-shadow: 5px 0px 10px rgba(0, 0, 0, 0.5);
+  z-index: 2;
+  padding: 6px 25px;
+}
+.logo
+{
+  font-weight: 900;
+  font-size: 30px;
+  letter-spacing: 1px;
+}
+.sub-logo
+{
+  color: #999;
+  position: relative;
+  top: -4px;
+  margin-left: 10px;
+  font-size: 16px;
+}

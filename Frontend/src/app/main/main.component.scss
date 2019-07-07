@@ -1,0 +1,18 @@
+.wrapper
+{
+  padding-left: 170px;
+  padding-top: 70px;
+  padding-bottom: 60px;
+}
+.bottom-img
+{
+  opacity: 0.5;
+  z-index: 5;
+  background-image: url('../../assets/towns.png');
+  width: 100%;
+  height: 50px;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  background-size: contain;
+}

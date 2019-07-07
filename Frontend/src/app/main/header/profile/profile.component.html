@@ -1,0 +1,13 @@
+<button mat-button [matMenuTriggerFor]="menu">
+  <mat-icon>person</mat-icon> {{authService.userData.surname}} {{authService.userData.name}}
+</button>
+<mat-menu #menu="matMenu">
+  <button (click)="openVerificationDrawer.emit()" mat-menu-item>
+    <mat-icon>check</mat-icon>
+    Верификация
+  </button>
+  <button (click)="logout()" mat-menu-item>
+    <mat-icon>logout</mat-icon>
+    Выход
+  </button>
+</mat-menu>

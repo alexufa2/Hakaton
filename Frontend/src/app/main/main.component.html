@@ -1,0 +1,13 @@
+<app-header (openVerificationDrawer)="vertificationDrawerOpened = true"></app-header>
+<app-sidebar (setMode)="mode = $event"></app-sidebar>
+<div class="wrapper">
+  <span style="word-break: break-all">
+    <app-stat-address *ngIf="mode === 'STAT_ADDRESS'"></app-stat-address>
+    <app-stat-address-map *ngIf="mode === 'STAT_ADDRESS_MAP'"></app-stat-address-map>
+  </span>
+</div>
+
+<div class="bottom-img"></div>
+
+<app-verification-drawer [(opened)]="vertificationDrawerOpened"></app-verification-drawer>
+

@@ -1,0 +1,27 @@
+<div class="header-block" >
+  <h2>Достоверная информация<br>про строительство вокруг вас</h2>
+  <small>Просто введите название улицы, которая вас интересует. Система покажет вам всю имеющуюся открытую статистику.</small>
+</div>
+
+<div class="search-block">
+  <mat-form-field class="search-input" appearance="outline" floatLabel="never">
+
+    <input #searchInput type="text" maxlength="50" placeholder="Название улицы" matInput [formControl]="searchControl" [matAutocomplete]="auto">
+
+    <mat-icon *ngIf="status === 'INITIAL'" matSuffix>search</mat-icon>
+
+    <mat-spinner *ngIf="status === 'SEARCHING'" class="search-icon" diameter="25" strokeWidth="2" matSuffix></mat-spinner>
+
+    <mat-autocomplete #auto="matAutocomplete" class="search-results-block">
+      <mat-option *ngFor="let result of lastSelectedResults" [value]="result.fullAddress" (onSelectionChange)="select(result)">
+        <mat-icon class="last-result-icon">schedule</mat-icon>
+        {{result.fullAddress}}
+      </mat-option>
+      <hr *ngIf="(searchResults | async)?.length + lastSelectedResults.length > 0" class="divider">
+      <mat-option *ngFor="let result of searchResults | async" [value]="result.fullAddress" (onSelectionChange)="select(result)">
+        {{result.fullAddress}}
+      </mat-option>
+    </mat-autocomplete>
+
+  </mat-form-field>
+</div>

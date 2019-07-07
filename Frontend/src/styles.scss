@@ -1,0 +1,115 @@
+@import '~@angular/material/theming';
+@import 'grid.css';
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat-core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$candy-app-primary: mat-palette($mat-blue, A200, A200, A200);
+$candy-app-accent: mat-palette($mat-orange);
+
+// Create the theme object (a Sass map containing all of the palettes).
+$candy-app-theme: mat-light-theme($candy-app-primary, $candy-app-accent);
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include angular-material-theme($candy-app-theme);
+
+*
+{
+  box-sizing: border-box;
+}
+body
+{
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  margin: 0;
+  background-color: #eef5f9 !important;
+}
+
+.add-button .mat-button-wrapper
+{
+  color: white !important;
+}
+
+.mat-toolbar
+{
+  height: 50px !important;
+}
+.mat-sidenav
+{
+  width: 85%;
+}
+.tooltips-block
+{
+  color: #777;
+  border-left: 1px solid #eee;
+  padding-left: 25px;
+  margin-top: 10px;
+}
+.mat-stepper-vertical .mat-step:last-of-type .mat-vertical-stepper-header
+{
+  pointer-events: none !important;
+}
+.mat-progress-bar-buffer
+{
+  background-color: #90caf9 !important;
+}
+.drawer-header
+{
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.mat-sidenav-container
+{
+  position: static !important;
+}
+.mat-drawer-backdrop
+{
+  position: fixed !important;
+}
+
+.btn-text-loading mat-spinner
+{
+  position: absolute;
+  top: 7px;
+  margin: 0 !important;
+  left: 10px;
+}
+.mat-select-panel
+{
+  max-height: 300px !important;
+}
+.content
+{
+  max-width: 800px !important;
+}
+.mat-form-field[appearance="outline"].no-label .mat-form-field-infix
+{
+  padding-top: 7px !important;
+}
+.mat-sidenav-content
+{
+  display: none !important;
+}
+.color-999
+{
+  color: #999;
+}
+.color-primary
+{
+  color: #448aff;
+}
+.H_ib_body
+{
+  width: 230px !important;
+  word-break: initial !important;
+  font-size: 13px !important;
+}
