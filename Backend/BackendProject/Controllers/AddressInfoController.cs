@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using ImportDataContracts;
 using Microsoft.AspNetCore.Mvc;
+using TemplateApp.DAL.Entities;
 using TemplateApp.Models;
 using TemplateApp.Services;
 
@@ -12,20 +13,12 @@ namespace TemplateApp.Controllers
     [Route("api/[controller]")]
     public class AddressInfoController : ControllerBase
     {
-        private IAddressInfoService _service;
+        private IDataStoreService _dataStoreService;
 
-        public AddressInfoController(IAddressInfoService service)
+
+        public AddressInfoController(IDataStoreService dataStoreService)
         {
-            _service = service;
-        }
-
-
-        [HttpGet("get")]
-        [IgnoreAntiforgeryToken]
-        public IActionResult GetAll()
-        {
-            IEnumerable<AddressInfo> data = _service.GetAll();
-            return Ok(data);
+            _dataStoreService = dataStoreService;
         }
 
         // GET api/<controller>/5
@@ -33,7 +26,16 @@ namespace TemplateApp.Controllers
         [IgnoreAntiforgeryToken]
         public IActionResult Filter([FromBody] AddressInfoFilter filter)
         {
-            IEnumerable<AddressInfo> data = _service.FilterByAddress(filter.Address);
+            IEnumerable<Street> data =
+                _dataStoreService.GetStreetsByString(filter.SearchString);
+            return Ok(data);
+        }
+
+        [HttpGet("get/id")]
+        [IgnoreAntiforgeryToken]
+        public IActionResult GetById(int id)
+        {
+            var data = _dataStoreService.GetJsonForStreet(id);
             return Ok(data);
         }
 

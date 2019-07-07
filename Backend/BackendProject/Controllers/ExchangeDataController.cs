@@ -21,15 +21,17 @@ namespace TemplateApp.Controllers
 
         private IFileService _fileService;
         private ITextFileParser _parser;
+        private IDataStoreService _dataService;
 
 
 
         public ExchangeDataController(IConfiguration configuration, IDataGovRuService dataGovRuService,
-            IFileService fileService, ITextFileParser parser)
+            IFileService fileService, ITextFileParser parser, IDataStoreService dataService)
         {
             _configuration = configuration;
             _dataGovRuService = dataGovRuService;
             _fileService = fileService;
+            _dataService = dataService;
             _parser = parser;
 
         }
@@ -91,8 +93,7 @@ namespace TemplateApp.Controllers
             IEnumerable<AddressInfo> result =
                 _parser.ParseFile(@"c:\Hackaton\Дата.Гов\data-20190703T0648-structure-20190703T0648.csv");
 
-            string json = JsonConvert.SerializeObject(result);
-            _fileService.SaveFileByName(GlobalConstants.DataFileName, json);
+            _dataService.SaveData(result);
 
             return Ok(result);
         }

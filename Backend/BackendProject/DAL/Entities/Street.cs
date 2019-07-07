@@ -9,5 +9,7 @@ namespace TemplateApp.DAL.Entities
 	{
 		public int Id { get; set; }
 		public string StreetName { get; set; }
-	}
+        public string FullAddress { get; set; }
+
+    }
 }

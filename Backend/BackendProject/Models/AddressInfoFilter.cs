@@ -7,6 +7,6 @@ namespace TemplateApp.Models
 {
     public class AddressInfoFilter
     {
-        public string Address { get; set; }
+        public string SearchString { get; set; }
     }
 }
