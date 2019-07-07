@@ -88,14 +88,22 @@ namespace TemplateApp.Controllers
 
         [HttpGet("load")]
         [IgnoreAntiforgeryToken]
-        public IActionResult testFile()
+        public IActionResult Load()
         {
             IEnumerable<AddressInfo> result =
-                _parser.ParseFile(@"c:\Hackaton\Дата.Гов\data-20190703T0648-structure-20190703T0648.csv");
+                _parser.ParseFile(@"c:\Hackaton\Дата.Гов\data-20190703T0648-structure-20190703T0648.csv",
+                                  "Сведения о местах нахождения многоквартирных жилых домов, в которых осуществлен капитальный ремонт");
 
             _dataService.SaveData(result);
 
             return Ok(result);
+        }
+
+        [HttpGet("loadfromdb")]
+        [IgnoreAntiforgeryToken]
+        public IActionResult LoadfromDb()
+        {
+            return Ok();
         }
     }
 }

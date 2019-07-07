@@ -6,6 +6,7 @@ namespace ImportDataContracts
     {
         public bool IsSimpleData { get; set; }
         public string StringData { get; set; }
+        public string ServiceName { get; set; }
         public NameValue[] NameValueData { get; set; }
         public Coords Coords
         {

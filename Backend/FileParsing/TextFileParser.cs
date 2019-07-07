@@ -11,8 +11,8 @@ namespace FileParsing
 {
     public interface ITextFileParser
     {
-        IEnumerable<AddressInfo> ParseFile(string filePath);
-        AddressInfo ParseString(string str);
+        IEnumerable<AddressInfo> ParseFile(string filePath, string serviceName);
+        AddressInfo ParseString(string str, string serviceName);
     }
 
 
@@ -20,14 +20,9 @@ namespace FileParsing
     {
         private Regex _streetRegExp = new Regex(@"(ул)|(мкрн)|(микрорайон)|(пос)|(пр)");
         private readonly string[] Splitters = new string[] { ",", ";" };
-        private readonly List<KeyValuePair<string, string>> CoordsHeaders =
-            new List<KeyValuePair<string, string>>
-            {
-
-            };
 
 
-        public IEnumerable<AddressInfo> ParseFile(string filePath)
+        public IEnumerable<AddressInfo> ParseFile(string filePath, string serviceName)
         {
             string[] lines = File.ReadAllLines(filePath);
             var result = new List<AddressInfo>(lines.Length);
@@ -45,7 +40,7 @@ namespace FileParsing
             // index c 1 чтобы пропустить первую строку - заголовок
             for (uint index = 1; index < lines.Length; index++)
             {
-                data = ParseString(lines[index], header, addrIndex);
+                data = ParseString(lines[index], header, addrIndex, serviceName);
                 if (data != null)
                 {
                     result.Add(data);
@@ -55,14 +50,14 @@ namespace FileParsing
             return result;
         }
 
-        public AddressInfo ParseString(string str)
+        public AddressInfo ParseString(string str, string serviceName)
         {
             string[] lineParts = Split(str);
             int addrIndex = GetAddrIndex(lineParts);
-            return ParseString(str, null, addrIndex);
+            return ParseString(str, null, addrIndex, serviceName);
         }
 
-        private AddressInfo ParseString(string str, string[] header, int addrIndex)
+        private AddressInfo ParseString(string str, string[] header, int addrIndex, string serviceName)
         {
             if (string.IsNullOrEmpty(str) || addrIndex < 0)
             {
@@ -84,7 +79,7 @@ namespace FileParsing
                 {
                     Street = street,
                     Address = list[addrIndex],
-                    JsonInfo = GetJson(list.ToArray(), header)
+                    JsonInfo = GetJson(list.ToArray(), header, serviceName)
                 };
             }
             catch
@@ -126,7 +121,7 @@ namespace FileParsing
             return part.Substring(match.Index, secondSpaceInd - match.Index);
         }
 
-        private string GetJson(string[] lineParts, string[] header)
+        private string GetJson(string[] lineParts, string[] header, string serviceName)
         {
             JsonData jsonData = null;
             bool headerIsValid = header != null && header.Any();
@@ -138,7 +133,8 @@ namespace FileParsing
                 {
                     IsSimpleData = true,
                     StringData = string.Join(", ", lineParts),
-                    NameValueData = new NameValue[0]
+                    NameValueData = new NameValue[0],
+                    ServiceName = serviceName
                 };
 
                 return JsonConvert.SerializeObject(jsonData);
@@ -158,7 +154,8 @@ namespace FileParsing
             {
                 IsSimpleData = false,
                 StringData = string.Empty,
-                NameValueData = list.ToArray()
+                NameValueData = list.ToArray(),
+                ServiceName = serviceName
             };
             return JsonConvert.SerializeObject(jsonData);
         }
