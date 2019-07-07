@@ -20,11 +20,11 @@ namespace FileParsing
     {
         private Regex _streetRegExp = new Regex(@"(ул)|(мкрн)|(микрорайон)");
         private readonly string[] Splitters = new string[] { ",", ";" };
-        private readonly List<KeyValuePair<string, string>> CoordsHeaders = 
+        private readonly List<KeyValuePair<string, string>> CoordsHeaders =
             new List<KeyValuePair<string, string>>
-        {
+            {
 
-        };
+            };
 
 
         public IEnumerable<AddressInfo> ParseFile(string filePath)
@@ -137,7 +137,6 @@ namespace FileParsing
                 {
                     IsSimpleData = true,
                     StringData = string.Join(", ", lineParts),
-                    Coords = null,
                     NameValueData = new NameValue[0]
                 };
 
@@ -154,26 +153,14 @@ namespace FileParsing
                 });
             }
 
-
             jsonData = new JsonData
             {
                 IsSimpleData = false,
                 StringData = string.Empty,
-                NameValueData = list.ToArray(),
-                Coords = GetCoords(lineParts, header)
+                NameValueData = list.ToArray()
             };
             return JsonConvert.SerializeObject(jsonData);
         }
 
-        private Coords GetCoords(string[] lineParts, string[] header)
-        {
-            Coords coords = null;
-           //TODO
-            return coords;
-        }
-
-
     }
-
-
 }

@@ -16,18 +16,18 @@ namespace TemplateApp.Services
 
     public class FileService : IFileService
     {
-        private string _fileDirPath;
+        private string _fullFileDirPath;
 
 
-        public FileService(string fileDirPath)
+        public FileService(string appRoot, string fileDirPath)
         {
-            _fileDirPath = fileDirPath;
+            _fullFileDirPath = Path.Combine(appRoot, fileDirPath);
         }
 
 
         public string ReadFileByName(string fileName)
         {
-            return ReadFileByPath(_fileDirPath, fileName);
+            return ReadFileByPath(_fullFileDirPath, fileName);
         }
 
         public string ReadFileByPath(string fileDir, string fileName)
@@ -43,7 +43,7 @@ namespace TemplateApp.Services
 
         public string SaveFileByName(string fileName, string fileContent)
         {
-            return SaveFileByPath(_fileDirPath, fileName, fileContent);
+            return SaveFileByPath(_fullFileDirPath, fileName, fileContent);
         }
 
         public string SaveFileByPath(string fileDir, string fileName, string fileContent)

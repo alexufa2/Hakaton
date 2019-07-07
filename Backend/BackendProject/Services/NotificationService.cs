@@ -41,8 +41,6 @@ namespace TemplateApp.Services
 
         public void ProccessEmailNotifications()
         {
-            return;
-
             var notififcationsNotSent = _context.Notifications.Where(x => x.State == DAL.enums.EmailStateEnum.NotSent &&
             x.SendingDate <= DateTime.UtcNow && x.SendAttemptsLimit <= 5).ToList();
 
