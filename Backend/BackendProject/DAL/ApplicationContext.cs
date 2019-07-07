@@ -14,6 +14,10 @@ namespace TemplateApp.DAL
 
 		public DbSet<DataGovRuEntryRow> DataGovRuEntryRows { get; set; }
 
+		public DbSet<Street> Streets { get; set; }
+
+		public DbSet<StreetJsonInfo> StreetJsonInfos { get; set; }
+
 		public ApplicationContext(DbContextOptions<ApplicationContext> options)
 			: base(options)
 		{
