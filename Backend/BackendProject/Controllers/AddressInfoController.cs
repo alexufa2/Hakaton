@@ -28,7 +28,7 @@ namespace TemplateApp.Controllers
         {
             IEnumerable<Street> data =
                 _dataStoreService.GetStreetsByString(filter.SearchString);
-            return Ok(data);
+            return Ok(new OperationResult() { Code = 200, Data = data, Success = true });
         }
 
         [HttpGet("get/{id}")]
@@ -36,7 +36,7 @@ namespace TemplateApp.Controllers
         public IActionResult GetById(int id)
         {
             var data = _dataStoreService.GetJsonForStreet(id);
-            return Ok(data);
+            return Ok(new OperationResult() { Code = 200, Data = data, Success = true });
         }
 
     }

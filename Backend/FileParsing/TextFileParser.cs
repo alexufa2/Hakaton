@@ -73,16 +73,17 @@ namespace FileParsing
             {
                 string[] parts = Split(str);
                 List<string> list = new List<string>(parts);
-
                 string street = GetStreet(list[addrIndex]);
-                int streetIndex = list[addrIndex].IndexOf(street);
-                string addressFromStreet = list[addrIndex].Substring(streetIndex);
-                list[addrIndex] = addressFromStreet;
+
+                //оставим весь адрес
+                //int streetIndex = list[addrIndex].IndexOf(street);
+                //string addressFromStreet = list[addrIndex].Substring(streetIndex);
+                //list[addrIndex] = addressFromStreet;
 
                 return new AddressInfo
                 {
                     Street = street,
-                    Address = addressFromStreet,
+                    Address = list[addrIndex],
                     JsonInfo = GetJson(list.ToArray(), header)
                 };
             }
